@@ -1,0 +1,191 @@
+<link href="/stylesheets/index.css" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/animate.css" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/main.css" rel="stylesheet" type="text/css" />
+<script src="/javascripts/jquery.min.js"></script>
+<link href="http://libs.baidu.com/fontawesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://www.envisioneer.cn/assets/Web Font/style.css" rel="stylesheet">
+<style>
+
+    #header {width:100%; height:80px; background: rgba(0,0,0,0.8); margin:0px; position: fixed; top:0px; z-index: 9999;transition: height 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            -moz-transition: height 0.8s cubic-bezier(0.77, 0, 0.175, 1); /* Firefox 4 */
+            -webkit-transition: height 0.8s cubic-bezier(0.77, 0, 0.175, 1);  /* Safari 和 Chrome */
+            -o-transition: height 0.8s cubic-bezier(0.77, 0, 0.175, 1); }
+        #logo {width:311px; height:72px;padding:4px 20px;transition: width 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            -moz-transition: width 0.8s cubic-bezier(0.77, 0, 0.175, 1); /* Firefox 4 */
+            -webkit-transition: width 0.8s cubic-bezier(0.77, 0, 0.175, 1);  /* Safari 和 Chrome */
+            -o-transition: width 0.8s cubic-bezier(0.77, 0, 0.175, 1); }
+            #logo img{width:100%;}
+        #Topmenu {width:611px; height:80px; line-height: 80px; text-align:left; transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            -moz-transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1); /* Firefox 4 */
+            -webkit-transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);  /* Safari 和 Chrome */
+            -o-transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1); }
+        #Topmenu a {color:white; margin-left:30px; font-size: 20px;}
+        #headerAct {width:24px; height:24px; margin-top:30px; margin-right: 40px; color:#d13138; font-size:24px; line-height:24px; cursor: pointer; transition: margin-top 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            -moz-transition: margin-top 0.8s cubic-bezier(0.77, 0, 0.175, 1); /* Firefox 4 */
+            -webkit-transition: margin-top 0.8s cubic-bezier(0.77, 0, 0.175, 1);  /* Safari 和 Chrome */
+            -o-transition: margin-top 0.8s cubic-bezier(0.77, 0, 0.175, 1); font-weight: bold}
+        .actbutton {padding:10px 15px;  padding-right:10px; font-size: 12px; color:white;letter-spacing:5px; transition: all 0.2s ;
+            -moz-transition: all 0.2s; /* Firefox 4 */
+            -webkit-transition: all 0.2s;  /* Safari 和 Chrome */
+            -o-transition: all 0.2s ; background:#d13138;}
+        .actbutton i {margin-left:-5px;font-size: 14px; color:white;  opacity:0; font-weight: bold;transition: all 0.2s ;
+            -moz-transition: all 0.2s; /* Firefox 4 */
+            -webkit-transition: all 0.2s;  /* Safari 和 Chrome */
+            -o-transition: all 0.2s }
+        .actbutton:hover {padding:10px !important; background:#d13138 !important; color:white !important; border:none !important;}
+        .actbutton:hover i{margin-left:5px;opacity:1;}
+        .actbutton:link {color:white;}
+        .actbutton:visited {color:white;}
+
+        .actREDbutton {padding:10px 15px;  padding-right:10px; font-size: 12px; color:white;letter-spacing:5px; transition: all 0.2s ;
+            -moz-transition: all 0.2s; /* Firefox 4 */
+            -webkit-transition: all 0.2s;  /* Safari 和 Chrome */
+            -o-transition: all 0.2s ; background:#d13138;}
+        .actREDbutton i {margin-left:-5px;font-size: 14px; color:white;  opacity:0; font-weight: bold;transition: all 0.2s ;
+            -moz-transition: all 0.2s; /* Firefox 4 */
+            -webkit-transition: all 0.2s;  /* Safari 和 Chrome */
+            -o-transition: all 0.2s }
+        .actREDbutton:hover {padding:10px !important; background:white !important; color:#d13138 !important; border:none !important;}
+        .actREDbutton:hover i{margin-left:5px;opacity:1; color:#d13138;}
+        .actREDbutton:link {color:white;}
+        .actREDbutton:visited {color:white;}
+    #bannerWords {min-height: 400px; position: static; width:80%; margin:0 auto; padding:200px 0;}
+        #bannerWords h1 {color:white; line-height: 40px;}
+        #bannerWords h2 {color:white;}
+    #infolinks p{line-height: 25px;}
+    #infolinks a{color:#212121;}
+    #menu {width:240px; background:#212121; padding:40px; padding-top:100px; text-align: left; position: fixed; right:-320px; top:0; z-index: 99;transition: right 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        -moz-transition: right 0.8s cubic-bezier(0.77, 0, 0.175, 1); /* Firefox 4 */
+        -webkit-transition: right 0.8s cubic-bezier(0.77, 0, 0.175, 1);  /* Safari 和 Chrome */
+        -o-transition: right 0.8s cubic-bezier(0.77, 0, 0.175, 1); }
+    #menu ul {margin-top: 20px;}
+    #menu ul li {line-height: 40px;}
+    #menu ul li a{width:240px; display:block; opacity: 1; color:white; font-size: 14px; transition: all 0.2s ;
+            -moz-transition: all 0.2s; /* Firefox 4 */
+            -webkit-transition: all 0.2s;  /* Safari 和 Chrome */
+            -o-transition: all 0.2s}
+    #menu ul li a:hover {color:#666;}
+    #headhome:hover{opacity: 0.7;}
+    #menu ul li a i {line-height:40px;}
+    .headerMenuListupdown{
+         -webkit-animation-name:'mymove';/*动画属性名，也就是我们前面keyframes定义的动画名*/
+         -webkit-animation-duration: 0.5s;/*动画持续时间*/
+         -webkit-animation-timing-function: ease-in-out; /*动画频率，和transition-timing-function是一样的*/
+         -webkit-animation-delay: 0s;/*动画延迟时间*/
+         -webkit-animation-iteration-count: 1;/*定义循环资料，infinite为无限次*/
+         -webkit-animation-direction: alternate;/*定义动画方式*/
+    }
+    @-webkit-keyframes mymove{
+    0%{ transform:rotate(0deg); }
+    100%{ transform:rotate(180deg); }
+    }
+        #menuProducts {width:240px; height:0;}
+        #menuProducts li {width:240px; display:none; height:40px; padding-left:20px;}
+        #menuProducts a {width:240px; display:block; opacity: 1; color:white; font-size: 14px; line-height:40px; height:40px;}
+
+</style>
+
+<script type="text/javascript">
+    var headerMenu=false;
+    var headerMenuList=false;
+    var headerMenuOFF=false;
+    var headerTime1,headerTime2,headerTime3;
+    $(window).scroll(function(){
+    　　var scrollTop = $(this).scrollTop();
+    　　if( scrollTop>100){
+            $("#header").stop();
+            $("#logo").stop();
+            $("#headerAct").stop();
+            $("#header").css("height","58px");
+            $("#logo").css("width","210px").css("height","49px");
+            $("#headerAct").css("margin-top","19px");
+            $("#Topmenu").css("height","58px").css("line-height","58px");
+    　　}
+    　　if( scrollTop<100){
+            $("#header").stop();
+            $("#logo").stop();
+            $("#headerAct").stop();
+            $("#header").css("height","80px");
+            $("#logo").css("width","311px");
+            $("#headerAct").css("margin-top","30px");
+            $("#Topmenu").css("height","80px").css("line-height","80px");
+    　　}
+    });
+    function headerShowMenu(){
+        if (headerMenuOFF==false) {
+            headerMenuOFF=true;
+            if (headerMenu==false) {
+                headerMenu=true;
+                $("#menu").stop();
+                $("#headerAct").empty().append("<span class='lnr lnr-cross'></span>").addClass("animated rotateIn");
+                headerTime3=setTimeout(function(){$("#headerAct").removeClass("rotateIn"); headerMenuOFF=false;},300);
+                $("#menu").css("right","0");
+            }
+            else {
+                headerMenu=false;
+                $("#menu").stop();
+                $("#headerAct").addClass("animated rotateOut");
+                $("#menu").css("right","-320px");
+                headerTime3=setTimeout(function(){$("#headerAct").removeClass("rotateOut").empty().append("<i class='fa fa-bars' aria-hidden='true'></i>");headerMenuOFF=false;},300)
+            }
+
+        }
+    }
+    function showmenulist(){
+        if (headerMenuList==false) {
+            headerMenuList=true;
+            $("#homeMenuPList").find(" i").addClass("headerMenuListupdown");
+            $("#menuProducts").stop();
+            $("#menuProducts").animate({height:"120px"},300,function(){
+                $("#menuProducts").find(" li").fadeIn(300);
+            });
+            clearTimeout(headerTime1);
+            clearTimeout(headerTime2);
+            headerTime1=setTimeout(function(){
+                $("#homeMenuPList").find(" i").remove();
+                $("#homeMenuPList").append("<i class='fa fa-angle-up fr' aria-hidden='true'></i>");
+            },500);
+        }
+        else {
+            headerMenuList=false;
+            $("#homeMenuPList").find(" i").addClass("headerMenuListupdown");
+            $("#menuProducts").stop();
+            clearTimeout(headerTime1);
+            clearTimeout(headerTime2);
+            $("#menuProducts").find(" li").fadeOut(300);
+            $("#menuProducts").animate({height:"0"},300,function(){
+
+            });
+            headerTime1=setTimeout(function(){
+                $("#homeMenuPList").find(" i").remove();
+                $("#homeMenuPList").append("<i class='fa fa-angle-down fr' aria-hidden='true'></i>");
+            },500);
+        }
+    }
+</script>
+<div id="header">
+    <div id="logo" class="fl"><a href="/index"><img src="http://www.envisioneer.cn/assets/web/images/envisioneer_logo.png"></a></div>
+    <div id="Topmenu" class="fl"><a href="/join">加盟代理</a> <a href="/index/educators">教育版</a></div>
+    <div id="headerAct" class="fr" onclick="headerShowMenu()"><i class="fa fa-bars" aria-hidden="true"></i></div>
+</div>
+<div id="menu">
+    <h2><i class="fa fa-phone" aria-hidden="true"></i> 010-68778999</h2>
+    <ul>
+        <li><a href="/index" style="color:#d13138" id="headhome">首页</a></li>
+        <li>
+            <a href="javascript:showmenulist()" id="homeMenuPList">产品<i class="fa fa-angle-down fr" aria-hidden="true"></i></a>
+            <div class="clear"></div>
+        </li>
+        <div id="menuProducts">
+            <li><a href="/products/personalArchitect">软装版</a></li>
+            <li><a href="/products/proarchitect">设计师版</a></li>
+            <li><a href="/products/envisioneerEssentials">设计总监版</a></li>
+        </div>
+        <li><a href="/products/buy">软件购买</a></li>
+        <li><a href="/train.php">培训中心</a></li>
+        <li><a href="/about">我们的故事</a></li>
+        <li><a href="/join">加盟代理</a></li>
+        <li><a href="/about#contact">联系我们</a></li>
+    </ul>
+    <div class="clear"></div>
+</div>

@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>注册</title>
+<link href="<?php echo SOURCE;?>/css/admin.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+html{ background:#F2F5F8;}
+</style>
+<script type='text/javascript' src='<?php echo SOURCE;?>/js/jquery.min.js'></script>
+<script type='text/javascript' src='<?php echo SOURCE;?>/js/admin.js'></script>
+
+<link rel="shortcut icon" href="/favicon.ico">
+<script type="text/javascript">
+//function refreshCc() {
+//	var ccImg = document.getElementById("checkCodeImg");
+//	if (ccImg) {
+//		ccImg.src= ccImg.src + '&' +Math.random();
+//	}
+//}
+
+	var isSend=false;
+	var IsTime=false;
+	var IsGetCode=false;
+	var sendCode=false;
+function P_index(){
+	$('#username_msg').html('输入英文和数字，大于4位').addClass("a-error").show();
+	$('#username').focus(function(){$('#username_msg').html('输入英文和数字，大于4位').addClass("a-error").show();});
+	$('#username').blur(function(){$('#username_msg').html('').removeClass("a-error");});
+
+	$('#password').focus(function(){$('#password_msg').html('大于6位！').addClass("a-error").show();});
+	$('#password').blur(function(){$('#password_msg').html('').removeClass("a-error");});
+}
+
+$(function() {
+	$('input[type="text"],textarea,input[type="password"]').blur(function() {
+		checkForm(this);
+	});
+	$('#username').focus();
+});
+function ajax_submit()
+{
+	$('#username_msg').html('').removeClass("a-error");
+	$('#password_msg').html('').removeClass("a-error");
+	$('#telphone_msg').html('').removeClass("a-error");
+
+	if (! $('#username').val() )
+	{
+		$('#username_msg').html('用户不能为空！').addClass("a-error").show();
+		return false;
+	}
+	if ($('#username').val().length<4 )
+	{
+		$('#username_msg').html('用户名必须大于等于4位！').addClass("a-error").show();
+		return false;
+	}
+	var Regx = /^[A-Za-z0-9]*$/;
+	if (!Regx.test($('#username').val())){
+		$('#username_msg').html('用户名为字母或数字').addClass("a-error").show();
+		return false;
+
+	}
+	if (! $('#telphone').val() )
+	{
+		$('#telphone_msg').html('手机号不能为空！').addClass("a-error").show();
+		return false;
+	}
+	if (! $('#code').val() )
+	{
+		$('#code_msg').html('验证码不能为空！').addClass("a-error").show();
+		return false;
+	}
+
+	if (! $('#password').val() )
+	{
+		$('#password_msg').html('密码不能为空！').addClass("a-error").show();
+		return false;
+	}
+	if ($('#password').val().length<6 )
+	{
+		$('#password_msg').html('密码必须大于等于6位！').addClass("a-error").show();
+		return false;
+	}
+	if ($('#password').val()!= $('#password2').val())
+	{
+		$('#password_msg').html('两次密码不一直！').addClass("a-error").show();
+		return false;
+	}
+	var url = '<?php echo U('index/register');?>';
+	var data = {
+		'username': $('#username').val(),
+		'password': $('#password').val(),
+		'telphone': $('#telphone').val(),
+		'code': $('#code').val(),
+	};
+
+	$.post(url, data, function(json){
+		//json = eval('(' + json + ')');
+		if (json.state == '200') {
+			window.location.href = '<?php echo U('index/index');?>';
+		}
+		else if (json.state == '1021') {
+			$('#username_msg').html(json.msg).addClass("a-error").show();
+		}
+		else if (json.state == '1022') {
+			$('#password_msg').html(json.msg).addClass("a-error").show();
+		}
+		else if (json.state == '1023') {
+			/*
+			if ($("input[name=type]:checked").val()==1) {
+				alert(json.msg);
+			}
+			else window.location.href="/train.php/index/login";*/
+			alert(json.msg);
+			window.location.href="/train.php";
+
+		}
+		else if (json.state == '1024') {
+			alert(json.msg);
+		}
+		else if (json.state == '1025') {
+			alert(json.msg);
+		}
+		else if (json.state == '1026') {
+			alert(json.msg);
+		}
+	},'json')
+}
+	function checkCode(){
+		var code=$("#code").val();
+		if (code=="") {
+			alert("验证码不能为空！");
+		}
+		else {
+			if (sendCode==false) {
+				$.ajax({
+					url: "/index/checkCode",
+					type: "POST",
+					data: {code:code},
+					success: function(data) {
+						alert(data);
+						if (data==1) {
+							send();
+						}
+						else if (data==0) {
+							alert("发生错误，请重试！");
+						}
+						else if (data==2) {
+							alert("验证码错误，请重试！");
+						}
+						else if (data==3) {
+							alert("请您输入手机号后，点击获取验证码，后再输入验证码！");
+						}
+						IsGetCode=false;
+					},
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						alert("发生错误，请重试！")
+						$("#main").append("<div style='display:none'>ajaxError</div>");
+						IsGetCode=false;
+					}
+				});
+
+			}
+			else {
+				alert("正在提交，请耐心等待！");
+			}
+
+
+		}
+	}
+	function getCode(){
+		var phone=$("#telphone").val();
+		if (phone=="") {
+			alert("电话不能为空！");
+		}
+		else{
+			if (IsTime==false) {
+				if (IsGetCode==false) {
+					IsGetCode=true;
+					$("#time").show();
+					IsTime=true;
+					timeID3=setInterval(function(){
+						var t=Number($("#time").find(" span").text());
+						var t=t-1;
+						$("#time").find(" span").text(t);
+						if (t==0) {
+							clearInterval(timeID3);
+							IsTime=false;
+							$("#time").hide();
+							$("#time").find(" span").text(60);
+
+						}
+					},1000);
+					$.ajax({
+						url: "/index/getCode",
+						type: "POST",
+						data: {phone:phone},
+						success: function(data) {
+							alert("发送成功，请您查收！");
+							$("#time").hide();
+							IsGetCode=false;
+						},
+						error: function (XMLHttpRequest, textStatus, errorThrown) {
+							alert("发生错误，请重试！")
+							$("#main").append("<div style='display:none'>ajaxError</div>");
+							IsGetCode=false;
+						}
+					});
+				}
+				else {
+					alert("您已经提交了验证，请耐心等待！");
+				}
+			}
+			else {
+				alert("一分钟只能提交一次！");
+			}
+
+		}
+
+	}
+//if(window.self!=window.top) window.open(window.location,'_top');
+</script>
+</head>
+<body>
+<div id="login-wrap">
+	<div class="login-main" style="background:url(/assets/web/images/trainRig.jpg) no-repeat">
+        	<h1>教育版</h1>
+        <div class="login-m" style="padding-top:80px; color:white">
+        	<form id="loginFrm" action="" method="post" onsubmit="ajax_submit();return false;">
+
+                <div style="clear:both"></div>
+                <div class="account1" style="width:470px;">
+                	<label for="username">用户名：</label>
+                    <input class="input-box admin-txt" id="username" name="password" type="text" />
+                    <span id="username_msg"><?php echo empty($this->username_msg)?'':$this->username_msg;?></span>
+                </div>
+                <div class="account1" style="width:470px;">
+                	<label for="username">手机号：</label>
+                    <input class="input-box admin-txt" id="telphone" name="telphone" type="text" />
+                    <span id="telphone_msg"><?php echo empty($this->telphone_msg)?'':$this->telphone_msg;?></span>
+
+					<div id="time" style="display:none;line-height:35px;">请于<span style="line-height:35px;">60</span>秒后重新获取...</div>
+
+                </div>
+                <div class="account1" style="width:470px;">
+                	<label for="username">验证码：</label>
+                    <input class="input-box admin-txt" id="code" name="code" type="text" style="float:left; " />
+                    <a href="javascript:getCode()" style="float:left; line-height:35px; margin-left:20px; color:blue; text-decoration:underline; color:white">获取验证码</a>
+                    <span id="code_msg"><?php echo empty($this->code_msg)?'':$this->code_msg;?></span>
+
+					<div class="clear" style="clear:both;"></div>
+                </div>
+                <div class="account2" style="padding-bottom:20px;">
+                	<label for="password">密码：</label>
+                    <input class="input-box admin-txt" id="password" name="password" type="password" />
+                    <span id="password_msg"><?php echo empty($this->password_msg)?'':$this->password_msg;?></span>
+                </div>
+                <div class="account2">
+                	<label for="password2">确认密码：</label>
+                    <input class="input-box admin-txt" id="password2" name="password2" type="password" />
+                    <span id="password_msg"></span>
+                </div>
+                <input class="admin-btn" onfocus="this.blur()" name="" type="submit" value="注 册" />
+            </form>
+                <div style="clear:both"></div>
+            <a href="/education.php/index/login" style="margin-left:110px; margin-top:8px; display:block; color:white">登 录</a>
+        </div>
+                <div style="clear:both"></div>
+    </div>
+</div><script language="javascript">$(document).ready(P_index);</script>
+</body>
+</html>

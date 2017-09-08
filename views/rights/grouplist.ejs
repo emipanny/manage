@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="/stylesheets/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/javascripts/jquery1.6.4.min.js"></script>
+<script type="text/javascript" src="/javascripts/comment.js"></script>
+<script type="text/javascript">
+    function P_index(){
+        $(".p_pagelink").each(function(){
+            $(this).pagescss();
+        });
+    }
+</script>
+</head>
+<body>
+<div class="main-wrap">
+	<div class="path"><span class="path-icon"></span>当前位置：管理员组<span> &gt; </span>管理员组列表</div>
+    <div class="set-wrap">
+        <h4 class="main-title">管理员组列表</h4>
+		<div class="set-area-int">
+        	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table-border">
+                <thead class="td-title-bg">
+  					<tr>
+    					<td>编号</td>
+    					<td>管理员组名称</td>
+    					<td>操作</td>
+  					</tr>
+                </thead>
+                <tbody>
+                	<% for(var i=0; i<groups.length; i++){%>
+					<tr>
+						<td><%= groups[i]['id']%></td>
+						<td><%= groups[i]['name']%></td>
+						<td>
+							<a class="change-icon" href="/rights/groupMgr/<%= groups[i]['id']%>">修改</a>
+							<a class="del-icon" href="/rights/groupDel/<%= groups[i]['id']%>" onclick="javascript:return confirm('你确定要删除吗？');">删除</a>
+						</td>
+					</tr>
+					<%}%>
+					<tr>
+                        <td colspan=3 id="page"><% include ../public/pages.ejs %></td>
+					</tr>
+                </tbody>
+			</table>
+    	</div>
+    </div>
+</div>
+<div id="edit_class"></div>
+
+<script language="javascript">$(document).ready(P_index);</script>
+</body>
+</html>

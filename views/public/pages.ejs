@@ -1,0 +1,35 @@
+<div class="p_pagelink">
+    <a href='<%= pageUrl%>?page=1' class="p_pages_first">首页</a>
+    <a href="<%= pageUrl%>?page=<%if(page>1){%><%= (page-1)%><%}else{%>1<%} %>" class="p_pages_prev">上一页</a>
+    <div class="p_pages_list">
+
+        <%
+        if(pages<10){
+            for(var i=1;i<=pages;i++){%>
+                <a href='<%= pageUrl%>?page=<%= i%>' <%if(i==page){%> style="font-weight:bold" <%}%>><%= i%></a>
+            <%}
+        }
+        else {
+            if(page<=5){
+                for(var i=1;i<=9;i++){%>
+                <a href='<%= pageUrl%>?page=<%= i%>' <%if(i==page){%> style="font-weight:bold" <%}%>><%= i%></a>
+                <%}
+            }
+            if(page>5 && page<(pages-4)){
+                for(var i=(page-4);i<=(page+4);i++){%>
+
+                <a href='<%= pageUrl%>?page=<%= i%>' <%if(i==page){%> style="font-weight:bold" <%}%>><%= i%></a>
+                <%}
+            }
+            if(page>=(pages-4)){
+                for(var i=(pages-8);i<=pages;i++){%>
+
+                <a href='<%= pageUrl%>?page=<%= i%>' <%if(i==page){%> style="font-weight:bold" <%}%>><%= i%></a>
+                <%}
+            }
+        }
+        %>
+    </div>
+    <a href="<%= pageUrl%>?page=<%if(page<pages){%><%= (Number(page)+1)%><%}else{%><%= pages%><%} %>" class="p_pages_next">下一页</a>
+    <a href='<%= pageUrl%>?page=<%= pages%>' class="p_pages_last">尾页</a>
+</div>

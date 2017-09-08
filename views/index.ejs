@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="index" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Envisioneer培训系统</title>
+<link href="/stylesheets/admin.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/admin.js"></script>
+<script>
+$(function(){
+	//admin.index.init();
+    indexshow.bindclick();
+
+
+    var height = $(document).height();
+
+    var frm = $('#mainframe').get(0).contentWindow.document;
+    //窗口的可视高度
+    var height=document.all ? document.getElementsByTagName("html")[0].offsetHeight : window.innerHeight;
+
+    if (height > 94)
+    {
+        setTimeout(function(){
+            $('#mainframe').height(height-96);
+            $('div.sidebar').height(height-96);
+        }, 0);
+    }
+
+});
+function father(m,b,t){
+    indexshow.clicksub(m,b,t);
+}
+var indexshow={
+    bindclick:function()//绑定点击事件
+    {
+        $("#header").find(".item_menu").click(function(){
+            var m=$("#header").find(".item_menu").index(this);
+            indexshow.menuclick(m);
+        });
+        $("#container").find(".sidebar").find(".clickact").click(function(){
+            $("#container").find(".sidebar").find(" a").css("color","#0082cb").css("background","#fff");
+            $(this).parent().css("background-color","#0082cb").css("color","#FFF");
+        });
+        indexshow.menuclick(0);
+    },
+    menuclick:function(m){
+        $("#header").find(".item_menu").removeClass("current");
+        $("#header").find(".item_menu:nth-child("+(m+1)+")").addClass("current");
+        indexshow.showsub(m);
+
+    },
+    showsub:function(m)//根据头部选项卡显示竖列选项卡
+    {
+        $(".sub-menu").hide();
+        $(".sidebar").find(".sub-menu:nth-child("+(m+1)+")").show();
+        indexshow.clicksub(m,1);
+    },
+    clicksub:function(m,b,t)//点击竖列选项卡
+    {
+
+        t=t|0;
+        var i=0;
+        $("#container").find(".sidebar").find(".sub-menu:nth-child("+(m+1)+")").find(" a:nth-child("+b+")").each(function(){
+
+            if (t==i) {
+                $(this).find(".clickact").click();
+                //alert($(this).html())
+            }
+            i++;
+        });
+
+    },
+};
+</script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div class="logo" style="width:350px; background:url(/assets/css/admin/logo2.png)"></div>
+		<div class="menu" style="left:500px;">
+
+            <% for(var key in menu1) {%>
+
+                <% if(right.hasOwnProperty(key)) {%>
+                    <a href="#" class="item_menu"><%= menu1[key]%></a>
+                <% }%>
+            <% }%>
+
+        </div>
+		<div class="log-info">
+        	<span>欢迎回来：<%= user %></span>
+            <em>|</em>
+            <a href="logout">退出系统</a>
+            <em>|</em>
+            <a href="javascript:void(0)" onclick="javascript:parent.mainframe.location.reload();">刷新主窗口</a>
+        </div>
+	</div>
+	<div id="container">
+	  <div class="sidebar">
+
+            <% for(var key in menu2) {%>
+
+                <% if(right.hasOwnProperty(key)) {%>
+                    <% var i=1; %>
+                    <div class="sub-menu">
+                        <% for(var key2 in menu2[key]) {
+                            var temp=false;
+                            for(var key3 in menu2[key][key2]){
+
+                                if(right[key].indexOf(key3)!=-1) {temp=true; break;}
+                            }
+
+                            if(temp) {
+                                if(i==1) {%>
+                                    <h3 class="sidebar-title-top"><%= key2 %></h3>
+                                <% }else{%>
+                                    <h3 class="sub-menu-titleline"><%= key2 %></h3>
+                                <% }
+                            }%>
+                            <div class="sub-menu-info">
+                            <%
+                            for(var key3 in menu2[key][key2]){
+
+                                if(right[key].indexOf(key3)!=-1) {%>
+                                    <a href="<%= key%>/<%= key3%>" target="mainframe"><span class="clickact"><%= menu2[key][key2][key3] %></span></a>
+                                <%}
+                            }%>
+                            </div>
+                            <%
+                        }%>
+                    </div>
+                    <% i++; %>
+                <% }%>
+            <% }%>
+		</div>
+		<div class="main">
+            <iframe id="mainframe" width="100%" height="100%" name="mainframe" frameborder="0" src="#"  scrolling="yes"></iframe>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+/*公共样式------------------------------*/
+body{padding:0px; margin:0px; font-size:16px; line-height:24px; font-family:'宋体','微软雅黑',Arial, Helvetica, sans-serif; color:#626365; text-align:center; _text-align:left;}
+ul,li,p,a,dl,dd,dt,div,h2,h3,h4,img,span,input,form,select,option,textarea{margin:0px; padding:0px;}
+*{margin:0px; padding:0px;}
+ul,li{list-style:none;}
+img{border:none; border:none;}
+a{text-decoration:none; }
+
+
+.fl{float:left;}
+.fr{float:right;}
+.cl{clear:both;}
+.dis{display:block;}
+.undis{display:none;}
+
+.p_t{padding-top:10px;}
+.p_b{padding-bottom:10px;}
+.m_t{margin-top:10px; display:inline;}
+.m_b{margin-bottom:10px; display:inline;}
+
+.clear { CLEAR: both; FONT-SIZE: 0px; LINE-HEIGHT: 0; HEIGHT:0;}
+
+.main{width:980px; height:auto; margin:0 auto; background:#fff;}
+/*头部的样式*/
+/*logo的样式*/
+.act {width: 250px;height: 50px;border: none;border-radius: 5px;background: #f74545;color: #fff;font-weight: 100;font-size: 23px;cursor: pointer;text-align: center; display:block;}
+.act:hover{background: #fa5a5a;}

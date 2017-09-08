@@ -1,0 +1,407 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="shortcut icon" href="favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Envisioneer 智能家居设计销售软件 中文官方网站</title>
+<meta name="keywords" content="Envisioneer |装修软件" />
+<meta name="description" content="来自加拿大的智能家居设计销售软件，3dMax装修版设计软件Envisioneer V9登录中国。效果图、施工图、报价一键生成；让设计师正点下班不再是梦；装修DIY，轻松绘制自己的家；家具销售，产品效果极速呈现。" />
+<link href="http://www.envisioneer.cn/assets/web/css/main.css" rel="stylesheet" type="text/css" />
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+var isMove=3;
+var isNow=1;
+function P_index(){
+	$("#map").find(" li").mouseover(function(){
+		$(this).find(".showdiv").show();
+	});
+	$("#map").find(" li").mouseout(function(){
+		$(this).find(".showdiv").hide();
+	});
+	auto();
+}
+function auto(){
+	setInterval(function(){
+		isNow++;
+		if (isNow==isMove) isNow=1;
+		$("#jmlist").find(" ul").animate({marginTop:-140*(isNow-1)+"px"},100);
+	},5000);
+}
+</script>
+<style>
+
+body {padding:0; margin:0; text-align:left;}
+h2 {
+font-family: Helvetica, sans-serif;
+font-size: 2em;
+font-weight: normal;
+color: black;
+}
+h2 {
+display: block;
+-webkit-margin-before: 0.83em;
+-webkit-margin-after: 0.83em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+}
+a {color:#4385b7;}
+	#wrap {width:980px; margin: 0 auto; padding-top:80px;}
+		#div_1 {width:141px; height:41px; padding:408px 499px 136px 341px; background: url(http://www.envisioneer.cn/assets/web/images/join/bg_1.jpg)}
+			#div_1 a {width:139px; height:40px; display: block; }
+		#map {width:980px; height:663px; background: url(http://www.envisioneer.cn/assets/web/images/join/bg_5.jpg); position: relative;}
+			#map li{width:16px; height:16px;  position:absolute; list-style:none;}
+				#bj {left:607px;top:283px;}
+				#xa {left:530px;top:358px;}
+				#sh {left:657px;top:393px;}
+				#hz {left:643px;top:410px;}
+				#gz {left:565px;top:485px;}
+				#dg {left:585px;top:490px;}
+				#nb {left:657px;top:421px;}
+				#cq {left:504px;top:414px;}
+				#mhk {left:716px;top:226px;}
+				#map li .showdiv {width:16px; height:16px; position: relative; display:none;}
+					#map li img {width:280px; height:235px; position: absolute; border:1px solid #ddd; left:16px; top:16px; margin:0; padding:0;}
+		#jmlist {width:880px; height:280px; overflow: hidden; margin-top:30px; margin-left: 60px;}
+			#jmlist ul {width:880px; }
+			#jmlist li{float:left; width:250px; height:140px; list-style:none; margin:0 20px;}
+				#jmlist li .jmname{width:100px; height:30px; background: #a5a5a5; color:white; text-align: center; line-height: 30px; border-radius:0 10px 0 0; font-size: 12px;}
+				#jmlist li .mess{width:250px; height:70px;  padding:20px 0; font-size: 12px; line-height: 20px;}
+
+		#div_6 {width:179px; height:56px; padding:549px 396px 91px 405px; background: url(http://www.envisioneer.cn/assets/web/images/join/bg_6.jpg)}
+			#div_6 a {width:179px; height:56px; display: block; }
+
+
+</style>
+</head>
+
+<body>
+
+<link href="http://www.envisioneer.cn/assets/web/css/index.css" rel="stylesheet" type="text/css" />
+<link href="http://www.envisioneer.cn/assets/web/css/animate.css" rel="stylesheet" type="text/css" />
+<link href="http://www.envisioneer.cn/assets/web/css/main.css" rel="stylesheet" type="text/css" />
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<link href="http://libs.baidu.com/fontawesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://www.envisioneer.cn/assets/Web Font/style.css" rel="stylesheet">
+<style>
+
+    #header {width:100%; height:80px; background: rgba(0,0,0,0.8); margin:0px; position: fixed; top:0px; z-index: 9999;transition: height 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            -moz-transition: height 0.8s cubic-bezier(0.77, 0, 0.175, 1); /* Firefox 4 */
+            -webkit-transition: height 0.8s cubic-bezier(0.77, 0, 0.175, 1);  /* Safari 和 Chrome */
+            -o-transition: height 0.8s cubic-bezier(0.77, 0, 0.175, 1); }
+        #logo {width:311px; height:72px;padding:4px 20px;transition: width 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            -moz-transition: width 0.8s cubic-bezier(0.77, 0, 0.175, 1); /* Firefox 4 */
+            -webkit-transition: width 0.8s cubic-bezier(0.77, 0, 0.175, 1);  /* Safari 和 Chrome */
+            -o-transition: width 0.8s cubic-bezier(0.77, 0, 0.175, 1); }
+            #logo img{width:100%;}
+        #Topmenu {width:611px; height:80px; line-height: 80px; text-align:left; transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            -moz-transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1); /* Firefox 4 */
+            -webkit-transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);  /* Safari 和 Chrome */
+            -o-transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1); }
+        #Topmenu a {color:white; margin-left:30px; font-size: 20px;}
+        #headerAct {width:24px; height:24px; margin-top:30px; margin-right: 40px; color:#d13138; font-size:24px; line-height:24px; cursor: pointer; transition: margin-top 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            -moz-transition: margin-top 0.8s cubic-bezier(0.77, 0, 0.175, 1); /* Firefox 4 */
+            -webkit-transition: margin-top 0.8s cubic-bezier(0.77, 0, 0.175, 1);  /* Safari 和 Chrome */
+            -o-transition: margin-top 0.8s cubic-bezier(0.77, 0, 0.175, 1); font-weight: bold}
+        .actbutton {padding:10px 15px;  padding-right:10px; font-size: 12px; color:white;letter-spacing:5px; transition: all 0.2s ;
+            -moz-transition: all 0.2s; /* Firefox 4 */
+            -webkit-transition: all 0.2s;  /* Safari 和 Chrome */
+            -o-transition: all 0.2s ; background:#d13138;}
+        .actbutton i {margin-left:-5px;font-size: 14px; color:white;  opacity:0; font-weight: bold;transition: all 0.2s ;
+            -moz-transition: all 0.2s; /* Firefox 4 */
+            -webkit-transition: all 0.2s;  /* Safari 和 Chrome */
+            -o-transition: all 0.2s }
+        .actbutton:hover {padding:10px !important; background:#d13138 !important; color:white !important; border:none !important;}
+        .actbutton:hover i{margin-left:5px;opacity:1;}
+        .actbutton:link {color:white;}
+        .actbutton:visited {color:white;}
+
+        .actREDbutton {padding:10px 15px;  padding-right:10px; font-size: 12px; color:white;letter-spacing:5px; transition: all 0.2s ;
+            -moz-transition: all 0.2s; /* Firefox 4 */
+            -webkit-transition: all 0.2s;  /* Safari 和 Chrome */
+            -o-transition: all 0.2s ; background:#d13138;}
+        .actREDbutton i {margin-left:-5px;font-size: 14px; color:white;  opacity:0; font-weight: bold;transition: all 0.2s ;
+            -moz-transition: all 0.2s; /* Firefox 4 */
+            -webkit-transition: all 0.2s;  /* Safari 和 Chrome */
+            -o-transition: all 0.2s }
+        .actREDbutton:hover {padding:10px !important; background:white !important; color:#d13138 !important; border:none !important;}
+        .actREDbutton:hover i{margin-left:5px;opacity:1; color:#d13138;}
+        .actREDbutton:link {color:white;}
+        .actREDbutton:visited {color:white;}
+    #bannerWords {min-height: 400px; position: static; width:80%; margin:0 auto; padding:200px 0;}
+        #bannerWords h1 {color:white; line-height: 40px;}
+        #bannerWords h2 {color:white;}
+    #infolinks p{line-height: 25px;}
+    #infolinks a{color:#212121;}
+    #menu {width:240px; background:#212121; padding:40px; padding-top:100px; text-align: left; position: fixed; right:-320px; top:0; z-index: 99;transition: right 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        -moz-transition: right 0.8s cubic-bezier(0.77, 0, 0.175, 1); /* Firefox 4 */
+        -webkit-transition: right 0.8s cubic-bezier(0.77, 0, 0.175, 1);  /* Safari 和 Chrome */
+        -o-transition: right 0.8s cubic-bezier(0.77, 0, 0.175, 1); }
+    #menu ul {margin-top: 20px;}
+    #menu ul li {line-height: 40px;}
+    #menu ul li a{width:240px; display:block; opacity: 1; color:white; font-size: 14px; transition: all 0.2s ;
+            -moz-transition: all 0.2s; /* Firefox 4 */
+            -webkit-transition: all 0.2s;  /* Safari 和 Chrome */
+            -o-transition: all 0.2s}
+    #menu ul li a:hover {color:#666;}
+    #headhome:hover{opacity: 0.7;}
+    #menu ul li a i {line-height:40px;}
+    .headerMenuListupdown{
+         -webkit-animation-name:'mymove';/*动画属性名，也就是我们前面keyframes定义的动画名*/
+         -webkit-animation-duration: 0.5s;/*动画持续时间*/
+         -webkit-animation-timing-function: ease-in-out; /*动画频率，和transition-timing-function是一样的*/
+         -webkit-animation-delay: 0s;/*动画延迟时间*/
+         -webkit-animation-iteration-count: 1;/*定义循环资料，infinite为无限次*/
+         -webkit-animation-direction: alternate;/*定义动画方式*/
+    }
+    @-webkit-keyframes mymove{
+    0%{ transform:rotate(0deg); }
+    100%{ transform:rotate(180deg); }
+    }
+        #menuProducts {width:240px; height:0;}
+        #menuProducts li {width:240px; display:none; height:40px; padding-left:20px;}
+        #menuProducts a {width:240px; display:block; opacity: 1; color:white; font-size: 14px; line-height:40px; height:40px;}
+
+</style>
+
+<script type="text/javascript">
+    var headerMenu=false;
+    var headerMenuList=false;
+    var headerMenuOFF=false;
+    var headerTime1,headerTime2,headerTime3;
+    $(window).scroll(function(){
+    　　var scrollTop = $(this).scrollTop();
+    　　if( scrollTop>100){
+            $("#header").stop();
+            $("#logo").stop();
+            $("#headerAct").stop();
+            $("#header").css("height","58px");
+            $("#logo").css("width","210px").css("height","49px");
+            $("#headerAct").css("margin-top","19px");
+            $("#Topmenu").css("height","58px").css("line-height","58px");
+    　　}
+    　　if( scrollTop<100){
+            $("#header").stop();
+            $("#logo").stop();
+            $("#headerAct").stop();
+            $("#header").css("height","80px");
+            $("#logo").css("width","311px");
+            $("#headerAct").css("margin-top","30px");
+            $("#Topmenu").css("height","80px").css("line-height","80px");
+    　　}
+    });
+    function headerShowMenu(){
+        if (headerMenuOFF==false) {
+            headerMenuOFF=true;
+            if (headerMenu==false) {
+                headerMenu=true;
+                $("#menu").stop();
+                $("#headerAct").empty().append("<span class='lnr lnr-cross'></span>").addClass("animated rotateIn");
+                headerTime3=setTimeout(function(){$("#headerAct").removeClass("rotateIn"); headerMenuOFF=false;},300);
+                $("#menu").css("right","0");
+            }
+            else {
+                headerMenu=false;
+                $("#menu").stop();
+                $("#headerAct").addClass("animated rotateOut");
+                $("#menu").css("right","-320px");
+                headerTime3=setTimeout(function(){$("#headerAct").removeClass("rotateOut").empty().append("<i class='fa fa-bars' aria-hidden='true'></i>");headerMenuOFF=false;},300)
+            }
+
+        }
+    }
+    function showmenulist(){
+        if (headerMenuList==false) {
+            headerMenuList=true;
+            $("#homeMenuPList").find(" i").addClass("headerMenuListupdown");
+            $("#menuProducts").stop();
+            $("#menuProducts").animate({height:"120px"},300,function(){
+                $("#menuProducts").find(" li").fadeIn(300);
+            });
+            clearTimeout(headerTime1);
+            clearTimeout(headerTime2);
+            headerTime1=setTimeout(function(){
+                $("#homeMenuPList").find(" i").remove();
+                $("#homeMenuPList").append("<i class='fa fa-angle-up fr' aria-hidden='true'></i>");
+            },500);
+        }
+        else {
+            headerMenuList=false;
+            $("#homeMenuPList").find(" i").addClass("headerMenuListupdown");
+            $("#menuProducts").stop();
+            clearTimeout(headerTime1);
+            clearTimeout(headerTime2);
+            $("#menuProducts").find(" li").fadeOut(300);
+            $("#menuProducts").animate({height:"0"},300,function(){
+
+            });
+            headerTime1=setTimeout(function(){
+                $("#homeMenuPList").find(" i").remove();
+                $("#homeMenuPList").append("<i class='fa fa-angle-down fr' aria-hidden='true'></i>");
+            },500);
+        }
+    }
+</script>
+<div id="header">
+    <div id="logo" class="fl"><a href="/index"><img src="http://www.envisioneer.cn/assets/web/images/envisioneer_logo.png"></a></div>
+    <div id="Topmenu" class="fl"><a href="/join">加盟代理</a> <a href="/index/educators">教育版</a></div>
+    <div id="headerAct" class="fr" onclick="headerShowMenu()"><i class="fa fa-bars" aria-hidden="true"></i></div>
+</div>
+<div id="menu">
+    <h2><i class="fa fa-phone" aria-hidden="true"></i> 010-68778999</h2>
+    <ul>
+        <li><a href="/index" style="color:#d13138" id="headhome">首页</a></li>
+        <li>
+            <a href="javascript:showmenulist()" id="homeMenuPList">产品<i class="fa fa-angle-down fr" aria-hidden="true"></i></a>
+            <div class="clear"></div>
+        </li>
+        <div id="menuProducts">
+            <li><a href="/products/personalArchitect">软装版</a></li>
+            <li><a href="/products/proarchitect">设计师版</a></li>
+            <li><a href="/products/envisioneerEssentials">设计总监版</a></li>
+        </div>
+        <li><a href="/products/buy">软件购买</a></li>
+        <li><a href="/train.php">培训中心</a></li>
+        <li><a href="/about">我们的故事</a></li>
+        <li><a href="/join">加盟代理</a></li>
+        <li><a href="/about#contact">联系我们</a></li>
+    </ul>
+    <div class="clear"></div>
+</div><div id="wrap">
+	<div id="div_1"><a href="/join/join"></a></div>
+	<div><img src="http://www.envisioneer.cn/assets/web/images/join/bg_2.jpg"></div>
+	<div><img src="http://www.envisioneer.cn/assets/web/images/join/bg_3.jpg"></div>
+	<div><img src="http://www.envisioneer.cn/assets/web/images/join/bg_4.jpg"></div>
+	<div id='map'>
+		<li id='bj' title=""><div class="showdiv"></div></li>
+		<li id='xa' title="西安市雁塔区绿地世纪城艺饕街A44-01-1010室029-68790318"><div class="showdiv"><img src="http://www.envisioneer.cn/assets/web/images/join/xa.png"></div></li>
+		<li id='sh' title="上海浦东新区张江路368号21楼2015室电话：021-51089418"><div class="showdiv"><img src="http://www.envisioneer.cn/assets/web/images/join/sh_1.png"></div></li>
+		<li id='hz' title="杭州滨江区滨安路1190号智汇中心A座603室0571-28322818"><div class="showdiv"><img src="http://www.envisioneer.cn/assets/web/images/join/hz.png"></div></li>
+		<li id='gz'><div class="showdiv"></div></li>
+		<li id='dg' title="东莞天安数码城B1-807"><div class="showdiv"><img src="http://www.envisioneer.cn/assets/web/images/join/dg.png"></div></li>
+		<li id='nb' title="浙江省宁波市鄞州区嵩江东路669号联安环球中心23楼"><div class="showdiv"><img src="http://www.envisioneer.cn/assets/web/images/join/nb.png"></div></li>
+		<li id='cq' title="重庆市渝北区北环红星美凯龙负一楼A8013"><div class="showdiv"><img src="http://www.envisioneer.cn/assets/web/images/join/cq.png"></div></li>
+		<li id='mhk' title="吉林省梅河口市人民大街，天龙御都9-7."><div class="showdiv"><img src="http://www.envisioneer.cn/assets/web/images/join/mhk.png"></div></li>
+	</div>
+	<div id="jmlist">
+		<ul>
+			<li>
+				<div class="jmname">杭州服务中心</div>
+				<div class="mess">
+				公司地址：杭州滨江区滨安路1190号</br>
+				联系方式：0571-28322818
+				</div>
+			</li>
+			<li>
+				<div class="jmname">西安服务中心</div>
+				<div class="mess">
+				公司地址：西安市雁塔区绿地世纪</br>
+				联系方式：029-68790318
+				</div>
+			</li>
+			<li>
+				<div class="jmname">宁波服务中心</div>
+				<div class="mess">
+				公司地址：宁波市鄞州区嵩江东路669号</br>
+				联系方式：0574-88349999
+				</div>
+			</li>
+			<li>
+				<div class="jmname">上海服务中心</div>
+				<div class="mess">
+				公司地址：上海浦东新区张江路368号</br>
+				联系方式：021-51089418
+				</div>
+			</li>
+			<li>
+				<div class="jmname">东莞服务中心</div>
+				<div class="mess">
+				公司地址：东莞天安数码城B1-807</br>
+				联系方式：0769-23388234
+				</div>
+			</li>
+			<li>
+				<div class="jmname">重庆服务中心</div>
+				<div class="mess">
+				公司地址：重庆市渝北区北环红星美凯龙负一楼A8013</br>
+				联系方式：023-67740573
+				</div>
+			</li>
+			<li>
+				<div class="jmname">东北服务中心</div>
+				<div class="mess">
+				公司地址：吉林省梅河口市人民大街，天龙御都9-7.</br>
+				联系方式：15043552222
+				</div>
+			</li>
+			<div class="clear"></div>
+		</ul>
+	</div>
+	<div id="div_6"><a href="/join/join"></a></div>
+
+</div>
+
+<div id="infolinks" style="background:white; padding:20px 0; color:#212121; line-height:30px; text-align:left;">
+
+
+	<div class="container" style="width:980px !important; max-width:980px;">
+
+       <div class="infolinks" style="width:10%">
+        	<h3>产品</h3>
+            <ul>
+                <li><a  rel="nofollow" href="/products/buy">软件购买</a></li>
+                <li><a  rel="nofollow" href="/products/personalArchitect">软装版</a></li>
+                <li><a  rel="nofollow" href="/products/proarchitect">设计师版本</a></li>
+                <li><a  rel="nofollow" href="/products/envisioneerEssentials">总监版本</a></li>
+            </ul>
+        </div><!--close connect-->
+
+        <div class="infolinks" style="width:10%">
+
+        	<h3>支持&学习</h3>
+            <ul>
+            	<li><a  rel="nofollow" href="/train.php">培训系统</a></li>
+                <li><a  rel="nofollow" href="/products/V12">新版Envisioneer</a></li>
+                <li><a  rel="nofollow" href="/download#system">系统要求</a></li>
+            </ul>
+
+        </div><!--close connect-->
+         <div  class="infolinks" style="width:10%">
+        	<h3>我们的故事</h3>
+            <ul>
+            	<li><a  rel="nofollow" href="/about">我们是谁</a></li>
+            	<li><a  rel="nofollow" href="/about#wedo">我们做什么</a></li>
+            	<li><a  rel="nofollow" href="/about#wedoit">为什么这么做</a></li>
+            	<li><a  rel="nofollow" href="/about#howitdo">如何做</a></li>
+            	<li><a  rel="nofollow" href="/about#partners">合作伙伴</a></li>
+            </ul>
+
+        </div><!--close connect-->
+         <div  class="infolinks"  style="width:42%">
+        	<h3>联系我们</h3>
+            <p>北京：010-68778999 &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;上海：021-51089418</p>
+            <p>杭州：0571-28322818 &nbsp; &nbsp; &nbsp;重庆：023-67740573</p>
+            <p>西安：029-68790318 &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;宁波：0574-88349999</p>
+            <p>东莞：0769-23388234 &nbsp; &nbsp; &nbsp;吉林：15043552222</p>
+	    	<p>北京地址：北京市朝阳区东三环中路39号建外SOHO西区18号楼02层1832室</p>
+	    	<p>其他地区：  <a href="http://www.cadsoft.com">北美</a>  |  <a href="http://www.cadsoft.com.au/" rel="nofollow">澳大利亚</a>  |  <a href="http://www.a-doc.com/" rel="nofollow">法国</a></p>
+
+
+        </div><!--close connect-->
+         <div  class="infolinks" style="margin-left:20px;">
+            <h3>微信订阅号</h3>
+            <img src="http://www.envisioneer.cn/assets/web/images/dingyuehao.png" style="width:80%">
+
+
+        </div><!--close connect-->
+
+	</div><!--close container-->
+
+	<img src="http://www.envisioneer.cn/assets/web/images/envisioneer.png" alt="" style="margin:0 auto; display:block">
+	<p style="text-align:center;padding:20px;">京ICP备16028785号-1</p>
+</div><!--close infolinks-->
+<div style="position:fixed; bottom:0;right:0; z-index:10;">
+<script src="//wp.qiye.qq.com/qidian/2852137548/18b666956e26ce7540522b672cd503bf" charset="utf-8"></script>
+</div><script language="javascript">$(document).ready(P_index);</script>
+</body>
+</html>

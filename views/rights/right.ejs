@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="/stylesheets/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/javascripts/jquery1.6.4.min.js"></script>
+<script type="text/javascript" src="/javascripts/comment.js"></script>
+
+<script type="text/javascript">
+	function P_index(){
+		changeRights()
+	}
+	function changeRights(){
+		var rights=$("#rights").val();
+		var url="/rights/changeRights";
+		var data={rights:rights};
+	    $.ajax({
+	        url: url,
+	        type: "POST",
+	        data: data,
+	        success: function(data) {
+	        	$(".checkbox").each(function(){
+	        		var controller=$(this).attr("name");
+	        		var value=$(this).val();
+	        		if (data[controller]!=undefined){
+	        			if (data[controller].indexOf(value)!=-1) $(this).attr("checked","true");
+	        			else $(this).removeAttr("checked");
+	        		}
+	        		else $(this).removeAttr("checked");
+	        	})
+
+	        },
+	        error: function (XMLHttpRequest, textStatus, errorThrown) {
+	        }
+	    });
+	}
+	function CheckAll(value)
+	{
+		if (value=="selectAll") {
+			$(".checkbox").each(function(){
+				$(this).attr("checked","true");
+			})
+		}
+		else {
+			$(".checkbox").each(function(){
+				$(this).removeAttr("checked");
+			})
+
+		}
+	}
+</script>
+</head>
+<body>
+
+<div class="main-wrap">
+	<div class="path"><span class="path-icon"></span>当前位置：权限管理<span> &gt; </span>权限管理</div>
+    <div class="set-wrap">
+        <h4 class="main-title">权限管理</h4>
+		<div id="set-area-int">
+			<form method="post" name="form1" action="" id="form1">
+	 		<table width="100%" id="group_list">
+			<tr>
+				<td width="80" align="right" style="color:red; font-weight: bold;">选择用户组：</td>
+				<td>
+					<select style="font-size:15px;color:blue;padding:3px;" name="gid" id="rights" onchange="changeRights()" >
+					<% for (var i=0; i<groups.length; i++){%>
+					<option value="<%= groups[i]['id']%>"><%= groups[i]['name']%></option>
+					<%}%>
+					</select>
+				</td>
+			</tr>
+			</table>
+
+			<table width="100%" id="info_list">
+				<% for(var key in menu){%>
+					<tr style="text-align:center;" class="tdlist">
+						<td align="right" width="120px"><b><%= menu[key]['title']%>：</b></td>
+						<td align="left">
+							<%for(var key2 in menu[key]['actions']){%>
+								<label><input type="checkbox" name="<%= key%>" value="<%= key2%>" class='checkbox'/> <%= menu[key]['actions'][key2]%></label>&nbsp;&nbsp;
+
+							<%}%>
+						</td>
+					</tr>
+				<%}%>
+				<tr>
+					<td width="80" align="right"> </td>
+					<td>
+						<a href="javascript:CheckAll('selectAll');">全选</a>&nbsp;&nbsp;
+						<a href="javascript:CheckAll();">反选</a>&nbsp;&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<td width="80" align="right"> </td>
+					<td class="button button-position">
+						<input type="submit" name="submit" value="保存修改" class="submitBtn" />
+					</td>
+				</tr>
+			</table>
+			</form>
+
+    	</div>
+    </div>
+</div>
+<script language="javascript">$(document).ready(P_index);</script>
+</body>
+</html>

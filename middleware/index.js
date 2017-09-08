@@ -1,0 +1,2 @@
+
+exports.checkUser = require('./checkUser');
